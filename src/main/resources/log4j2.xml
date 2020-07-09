@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="10" >
+    <Properties>
+        <!--以maven启动的目录为根目录 -->
+        <Property name="log-pattern">%d{ISO8601} %highlight{%5p} %t %c{1}.%M - %reqId - %msg - %auth %n</Property>
+    </Properties>
+
+    <Appenders>
+        <!-- DEBUG & TRACE -->
+
+
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${log-pattern}"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <appender-ref ref="console"/>
+            <!--<appender-ref ref="warn"/>-->
+        </Root>
+
+        <!--<Logger name="com.chainxservice" level="${log-level}" additivity="false">-->
+            <!--<appender-ref ref="debug"/>-->
+            <!--<appender-ref ref="info" level="info"/>-->
+            <!--<appender-ref ref="warn" level="warn"/>-->
+            <!--<appender-ref ref="error" level="error"/>-->
+            <!--<appender-ref ref="console" level="${log-console-level}"/>-->
+        <!--</Logger>-->
+    </Loggers>
+</Configuration>

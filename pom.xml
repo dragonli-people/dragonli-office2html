@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+  		<groupId>org.dragonli.service</groupId>
+  		<artifactId>dubbo-service-parent</artifactId>
+  		<version>1.0.3</version>
+  	</parent>
+
+
+    <artifactId>dragonli-docx2html</artifactId>
+	<packaging>jar</packaging>
+
+	<name>dragonli-docx2html</name>
+
+
+
+  <dependencies>
+
+    <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi</artifactId>
+        <version>3.11</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-ooxml</artifactId>
+        <version>3.11</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>ooxml-schemas</artifactId>
+        <version>1.1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.xmlbeans</groupId>
+        <artifactId>xmlbeans</artifactId>
+        <version>2.6.0</version>
+    </dependency>
+    <dependency>
+        <groupId>fr.opensagres.xdocreport</groupId>
+        <artifactId>org.apache.poi.xwpf.converter.xhtml</artifactId>
+        <version>1.0.5</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+      <finalName>dragonli-docx2html</finalName>
+  </build>
+
+</project>
