@@ -1,12 +1,4 @@
-spring:
-  application:
-    name: micro-service
-  profiles:
-    active: ${PROFILES:native}
-  cloud:
-    config:
-      uri: ${CONFIG_SERVER:http://192.168.7.101:8888}
-      #uri: ${CONFIG_SERVER:http://localhost:8888}
-      fail-fast: true
+http:
+  port: 8012
 logging:
   config: classpath:log4j2.xml
