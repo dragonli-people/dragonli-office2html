@@ -1,8 +1,11 @@
 package org.dragonli.service.app.docx2html.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import org.dragonli.service.app.docx2html.utils.tohtml.DocConverter;
+import org.dragonli.service.app.docx2html.utils.tohtml.DocxConverter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,12 +19,20 @@ public class ToHtmlController {
 
 
     @RequestMapping("/docx")
-    public Map<String, Object> docx() throws Exception {
+    public Map<String, Object> docx(@RequestParam("fileData") MultipartFile file) throws Exception {
+        Map<String, Object> o = new HashMap<>();
         Map<String, Object> result = new HashMap<>();
-
-        result.put("result", true);
-
-        return result;
+        o.put("result",result);
+        result.put("value",(new DocxConverter()).convert(file.getInputStream()));
+        return o;
     }
 
+    @RequestMapping("/doc")
+    public Map<String, Object> doc(@RequestParam("fileData") MultipartFile file) throws Exception {
+        Map<String, Object> o = new HashMap<>();
+        Map<String, Object> result = new HashMap<>();
+        o.put("result",result);
+        result.put("value", (new DocConverter()).convert(file.getInputStream()));
+        return o;
+    }
 }

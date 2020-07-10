@@ -14,7 +14,7 @@
     <artifactId>dragonli-docx2html</artifactId>
 	<packaging>jar</packaging>
 
-	<name>dragonli-docx2html</name>
+	<name>dragonli-office2html</name>
 
 
 
@@ -23,12 +23,17 @@
     <dependency>
         <groupId>org.apache.poi</groupId>
         <artifactId>poi</artifactId>
-        <version>3.11</version>
+        <version>3.15</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-scratchpad</artifactId>
+        <version>3.15</version>
     </dependency>
     <dependency>
         <groupId>org.apache.poi</groupId>
         <artifactId>poi-ooxml</artifactId>
-        <version>3.11</version>
+        <version>3.15</version>
     </dependency>
     <dependency>
         <groupId>org.apache.poi</groupId>
@@ -45,10 +50,29 @@
         <artifactId>org.apache.poi.xwpf.converter.xhtml</artifactId>
         <version>1.0.5</version>
     </dependency>
+
+      <!--<dependency>-->
+          <!--<groupId>org.apache.poi</groupId>-->
+          <!--<artifactId>poi-scratchpad</artifactId>-->
+          <!--<version>3.11</version>-->
+      <!--</dependency>-->
+
+      <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad -->
+      <dependency>
+          <groupId>org.apache.poi</groupId>
+          <artifactId>poi-scratchpad</artifactId>
+          <version>3.15</version>
+      </dependency>
+      <dependency>
+          <groupId>fr.opensagres.xdocreport</groupId>
+          <artifactId>fr.opensagres.poi.xwpf.converter.xhtml</artifactId>
+          <version>2.0.1</version>
+      </dependency>
+
   </dependencies>
 
   <build>
-      <finalName>dragonli-docx2html</finalName>
+      <finalName>dragonli-office2html</finalName>
   </build>
 
 </project>
