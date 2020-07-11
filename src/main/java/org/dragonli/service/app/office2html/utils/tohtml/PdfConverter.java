@@ -16,22 +16,21 @@ public class PdfConverter {
 
     public String convert(InputStream in) throws Exception{
 
-        StringBuffer base64 ;
-        PDDocument document;
-        BufferedImage image;
-        int size;
-        Long randStr = 0l;
+        StringBuffer base64 = new StringBuffer();;
+        PDDocument document = PDDocument.load(in, (String) null);;
+        int size = document.getNumberOfPages();;
+//        Long randStr = 0l;
+//
+//        randStr = System.currentTimeMillis();
+//        document = new PDDocument();
 
-        List<String> list = new LinkedList<>();
-        randStr = System.currentTimeMillis();
-        document = new PDDocument();
-        document = PDDocument.load(in, (String) null);
-        size = document.getNumberOfPages();
+        BufferedImage image;
         Long start = System.currentTimeMillis(), end = null;
+        base64.append("<div>");
         PDFRenderer reader = new PDFRenderer(document);
         for (int i = 0; i < size; i++) {
             //image = newPDFRenderer(document).renderImageWithDPI(i,130,ImageType.RGB);
-            base64 = new StringBuffer();
+
             base64.append("<img src=\"data:image/jpg;base64,");
             image = reader.renderImage(i, 1.5f);
             //生成图片,保存位置
@@ -40,13 +39,14 @@ public class PdfConverter {
             ImageIO.write(image, "png", stream);
             base64.append(Base64.encodeBase64String(stream.toByteArray()));
             base64.append("\"/><br/>");
-            list.add( base64.toString());
         }
 
+        base64.append("</div>");
         document.close();
+
         end = System.currentTimeMillis() - start;
         System.out.println("===> Reading pdf times: " + (end / 1000));
-        return list.stream().collect(Collectors.joining(""));
+        return base64.toString();
 
 
 //        PDDocument pdDocument = null;
