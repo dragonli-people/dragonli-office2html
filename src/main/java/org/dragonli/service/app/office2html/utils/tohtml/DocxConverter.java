@@ -1,4 +1,4 @@
-package org.dragonli.service.app.docx2html.utils.tohtml;
+package org.dragonli.service.app.office2html.utils.tohtml;
 
 
 import fr.opensagres.poi.xwpf.converter.xhtml.Base64EmbedImgManager;

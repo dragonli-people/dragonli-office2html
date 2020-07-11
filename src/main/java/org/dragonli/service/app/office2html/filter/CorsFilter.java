@@ -1,4 +1,4 @@
-package org.dragonli.service.app.docx2html.filter;
+package org.dragonli.service.app.office2html.filter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

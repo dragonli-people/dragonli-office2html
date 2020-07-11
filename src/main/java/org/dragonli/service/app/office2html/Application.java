@@ -1,7 +1,5 @@
-package org.dragonli.service.app.docx2html;
+package org.dragonli.service.app.office2html;
 
-import org.dragonli.service.app.docx2html.utils.tohtml.DocConverter;
-import org.dragonli.service.app.docx2html.utils.tohtml.DocxConverter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,10 +8,6 @@ import org.springframework.boot.web.server.ConfigurableWebServerFactory;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
 
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @EnableAsync
