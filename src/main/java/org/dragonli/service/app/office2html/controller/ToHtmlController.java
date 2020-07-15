@@ -37,11 +37,10 @@ public class ToHtmlController {
     @RequestMapping("/pdf")
     public Map<String, Object> pdf(@RequestParam("fileData") MultipartFile file) throws Exception {
         Map<String, Object> o = new HashMap<>();
-        Map<String, Object> result = new HashMap<>();
-        o.put("result",result);
-        String code = (new PdfConverter()).convert(file.getInputStream());
-        result.put("value", code);
-//        result.put("value", "<img src=\"data:image/jpg;base64,"+code+"\"/>");
+        o.put("result",(new PdfConverter()).convert(file.getInputStream()));
         return o;
+//        result.put("value", code);
+//        result.put("value", "<img src=\"data:image/jpg;base64,"+code+"\"/>");
+//        return o;
     }
 }
