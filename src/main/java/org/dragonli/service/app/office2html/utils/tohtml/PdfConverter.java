@@ -6,6 +6,7 @@ import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDResources;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
+import org.apache.pdfbox.rendering.ImageType;
 import org.apache.pdfbox.rendering.PDFRenderer;
 import sun.misc.BASE64Encoder;
 
@@ -65,11 +66,12 @@ public class PdfConverter {
             allImgs.addAll(imgCoes);
 
             base64.append("<img src=\"data:image/jpg;base64,");
-            image = reader.renderImage(i, 2.0f);
+//            image = reader.renderImage(i, 2.0f);
+            image = reader.renderImageWithDPI(i, 400, ImageType.RGB);
             //生成图片,保存位置
             //输出流
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            ImageIO.write(image, "jpg", stream);
+            ImageIO.write(image, "png", stream);
             base64.append(Base64.encodeBase64String(stream.toByteArray()));
             base64.append("\"/><br/>");
         }
