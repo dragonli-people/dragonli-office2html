@@ -2,6 +2,7 @@ package org.dragonli.service.app.office2html.controller;
 
 import org.dragonli.service.app.office2html.utils.tohtml.DocConverter;
 import org.dragonli.service.app.office2html.utils.tohtml.DocxConverter;
+import org.dragonli.service.app.office2html.utils.tohtml.Pdf2HtmlConverter;
 import org.dragonli.service.app.office2html.utils.tohtml.PdfConverter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,7 @@ import java.util.Map;
 public class ToHtmlController {
 
 
-    @RequestMapping("/docx")
+    @RequestMapping("/docx/html")
     public Map<String, Object> docx(@RequestParam("fileData") MultipartFile file) throws Exception {
         Map<String, Object> o = new HashMap<>();
         Map<String, Object> result = new HashMap<>();
@@ -25,7 +26,7 @@ public class ToHtmlController {
         return o;
     }
 
-    @RequestMapping("/doc")
+    @RequestMapping("/doc/html")
     public Map<String, Object> doc(@RequestParam("fileData") MultipartFile file) throws Exception {
         Map<String, Object> o = new HashMap<>();
         Map<String, Object> result = new HashMap<>();
@@ -34,13 +35,19 @@ public class ToHtmlController {
         return o;
     }
 
-    @RequestMapping("/pdf")
+    @RequestMapping("/pdf/html")
+    public Map<String, Object> pdf2Html(@RequestParam("fileData") MultipartFile file) throws Exception {
+        Map<String, Object> o = new HashMap<>();
+        o.put("result",(new Pdf2HtmlConverter()).convert(file.getInputStream()));
+        return o;
+    }
+
+    @RequestMapping("/pdf/image")
     public Map<String, Object> pdf(@RequestParam("fileData") MultipartFile file) throws Exception {
         Map<String, Object> o = new HashMap<>();
         o.put("result",(new PdfConverter()).convert(file.getInputStream()));
         return o;
-//        result.put("value", code);
-//        result.put("value", "<img src=\"data:image/jpg;base64,"+code+"\"/>");
-//        return o;
     }
+
+
 }
