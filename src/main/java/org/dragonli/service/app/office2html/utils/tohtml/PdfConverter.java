@@ -67,7 +67,7 @@ public class PdfConverter {
 
             base64.append("<img src=\"data:image/jpg;base64,");
 //            image = reader.renderImage(i, 2.0f);
-            image = reader.renderImageWithDPI(i, 400, ImageType.RGB);
+            image = reader.renderImageWithDPI(i, 300, ImageType.RGB);
             //生成图片,保存位置
             //输出流
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
